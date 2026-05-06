@@ -14,6 +14,18 @@ const config: Config = {
   projectName: 'LayerDocs-docs',
 
   onBrokenLinks: 'throw',
+  markdown: {
+    format: 'md',
+    mermaid: true,
+    preprocessor: ({filePath, fileContent}) => {
+      return fileContent;
+    },
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',

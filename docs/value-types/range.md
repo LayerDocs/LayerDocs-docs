@@ -1,0 +1,36 @@
+# Range
+
+.docname &#123;Range&#125;
+.include &#123;docs&#125;
+
+The syntax for defining a range is **`a..b`**, where `a` and `b` are non-negative integers, for example `2..10`.
+
+You can omit either `a` or `b`, in which case the range becomes *open*.
+
+Depending on the number of delimiters provided, a range can be classified as:
+
+- Closed range: `a..b`
+- Open on the left end: `..b`
+- Open on the right end: `a..`
+- Open on both ends: `..`
+
+The behavior of open ranges is not universally defined. Each function that accepts a range defines its own behavior. See [`.read`](file-data.qd#file-text-content) as an example, whose strategy is common for slicing operations across the standard library.
+
+The `..` operator is syntactic sugar for the **`.range &#123;from&#125; &#123;to&#125;`** function, with the difference that the operator accepts only literal values. When the ends of the range need to be evaluated dynamically, such as through a mathematical operation, `.range` is the appropriate choice.
+
+.examplemirror
+    .code
+        .read &#123;assets/point.ts&#125;
+
+.examplemirror
+    .code
+        .read &#123;assets/point.ts&#125; lines:&#123;5..7&#125;
+
+
+.examplemirror
+    .code 
+        .read &#123;assets/point.ts&#125; lines:&#123;..3&#125;
+
+.examplemirror
+    .code
+        .read &#123;assets/point.ts&#125; lines:&#123;5..&#125;

@@ -1,0 +1,53 @@
+# Pipeline   Parsing
+
+.docname &#123;Pipeline - Parsing&#125;
+.include &#123;docs&#125;
+
+&gt; Main packages: .repolink &#123;`core.parser`&#125; &#123;tree/main/layerdocs-core/src/main/kotlin/com/layerdocs/core/parser&#125;, .repolink &#123;`core.ast`&#125; &#123;tree/main/layerdocs-core/src/main/kotlin/com/layerdocs/core/ast&#125;
+
+Continuing with the metaphor introduced in [Lexing](pipeline---lexing.qd), once the nouns, verbs, and adjectives are extracted from a sentence, our brain is responsible for linking them together to build information out of them.
+
+The parser takes the sequence of tokens and organizes them into a tree structure called an *Abstract Syntax Tree* (AST), which defines the relationships between different parts of the document. Each element of the tree is called a *Node*.
+
+---
+
+Example Markdown input:
+
+```markdown
+## Title
+
+This is **bold** and _italic_ text.
+
+- Item 1
+- Item 2
+```
+
+Output AST:
+
+- `AstRoot`
+  - `Heading(depth=1)`
+    - `Text("Title")`
+  - `Paragraph`
+    - `Text("This is ")`
+    - `Strong("bold")`
+    - `Text(" and ")`
+    - `Emphasis("italic")`
+    - `Text(" text")`
+  - `UnorderedList`
+    - `ListItem`
+      - `Paragraph`
+        - `Text("Item 1")`
+    - `ListItem`
+      - `Paragraph`
+        - `Text("Item 2")`
+
+---
+
+The *lexing* stage produces just the outer blocks, which in this example are a `HeadingToken`, a `ParagraphToken`, and an `UnorderedListToken`.
+
+To gain nested information, the parser analyzes each token and starts searching in depth for nested blocks and inlines.
+- For each block token, the parser triggers the lexing stage on its inner content (*lexeme*)
+- Once the inner tokens are extracted, they undergo the parsing stage again
+- This process continues until no more nested tokens remain. This is called **recursive parsing**, visualized in the following figure:
+
+!(200)[Recursive parsing](pipeline---parsing/recursive-parsing.svg)

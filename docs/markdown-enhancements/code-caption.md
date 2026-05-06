@@ -1,0 +1,27 @@
+# Code Caption
+
+.docname &#123;Code caption&#125;
+.include &#123;docs&#125;
+
+LayerDocs introduces code captions, which you can set by adding a caption directly in the code block declaration. Place the caption after the language identifier, wrapped in double quotes, single quotes, or parentheses. This syntax is the same as the image *title* attribute and [table captions](table-caption.qd).
+
+.examplemirror
+    ```python "Fibonacci function"
+    def fibonacci(n):
+        if n <= 1:
+            return n
+        return fibonacci(n - 1) + fibonacci(n - 2)
+    ```
+
+Equivalently, via the [`.code`](code.qd) function:
+
+.examplemirror
+    .code lang:&#123;python&#125; caption:&#123;Fibonacci function&#125;
+        def fibonacci(n):
+            if n &lt;= 1:
+                return n
+            return fibonacci(n - 1) + fibonacci(n - 2)
+
+## Numbering
+
+You can also **number** code blocks, to display a sequential number alongside the caption. See [Numbering](numbering.qd) for more information.

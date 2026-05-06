@@ -1,0 +1,38 @@
+# Sizes
+
+.docname &#123;Sizes&#125;
+.include &#123;docs&#125;
+
+Many functions accept sizes as arguments. This page explains the correct format for defining them.
+
+## Single size (`Size`)
+
+When a **`Size`** value is required, strings with a **numeric value** (either integer or floating point) and a **unit** suffix are accepted.
+
+Supported units:
+- `px` pixels
+- `pt` points
+- `cm` centimeters
+- `mm` millimeters
+- `in` inches
+- `%` percentage (relative to parent)
+
+Examples of accepted values are: `12px`, `2cm`, `5.3in`, `30%`.
+
+You can omit the unit, in which case `px` is used by default.
+
+.examplemirror
+    .container width:&#123;50px&#125; height:&#123;2cm&#125; background:&#123;teal&#125;
+
+## Size group (`Sizes`)
+
+Some parameters require a group of sizes, also known as **`Sizes`**. This is required, for example, by [`.pageformat`](page-format.qd)'s `margin` parameter, and allows you to set up to four different values for each side of a rectangle.
+
+The format follows CSS conventions, with three different ways to express a size group:
+- **Single value:** a single [`Size`](#single-size-size) value applied to all sides (e.g., `8px`)
+- **Vertical/horizontal:** two [`Size`](#single-size-size) values separated by a space, applied to top-bottom and left-right respectively (e.g., `2cm 15mm`)
+- **TRBL:** four [`Size`](#single-size-size) values separated by a space, assigned to top, right, bottom, and left sides respectively (e.g., `2.1in 4cm 2px 2cm`)
+
+.examplemirror
+    .container padding:&#123;10px 60px&#125; background:&#123;teal&#125;
+        LayerDocs
