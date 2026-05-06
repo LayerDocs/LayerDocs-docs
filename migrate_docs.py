@@ -23,7 +23,7 @@ MAPPING = {
     "inside-layerdocs": ["pipeline.qd", "pipeline---lexing.qd", "pipeline---parsing.qd", "pipeline---function-call-expansion.qd", "pipeline---tree-traversal.qd", "pipeline---rendering.qd", "pipeline---post-rendering.qd"]
 }
 
-LEGACY_DIR = "legacy"
+LEGACY_DIR = "../LayerDocs-Source/docs"
 DOCS_DIR = "src/app"
 
 def migrate():
@@ -44,21 +44,17 @@ def migrate():
             content = re.sub(r'!\[.*?\]\(.*?\)', '', content)
             content = content.replace("<", "&lt;").replace(">", "&gt;")
             
-            title = qd_file.replace(".qd", "").replace("-", " ").title()
+            title = qd_file.replace(".qd", "").replace(".md", "").replace("-", " ").title()
             
-            # Nextra 4 requires a specific file naming or [page]/page.mdx
-            # But standard .mdx in App Router should work if configured.
-            # Actually, Nextra 4 prefers page.mdx inside a folder for clean URLs.
-            
-            page_folder = os.path.join(cat_dir, qd_file.replace(".qd", "").replace(".md", ""))
-            os.makedirs(page_folder, exist_ok=True)
+            # Using flat structure: category/page.mdx
+            filename = os.path.splitext(qd_file)[0] + ".mdx"
+            dst_path = os.path.join(cat_dir, filename)
             
             md_content = f"# {title}\n\n{content}"
-            dst_path = os.path.join(page_folder, "page.mdx")
             
             with open(dst_path, 'w', encoding='utf-8') as f:
                 f.write(md_content)
-            print(f"Migrated {qd_file}")
+            print(f"Migrated {qd_file} to {dst_path}")
 
 if __name__ == "__main__":
     migrate()

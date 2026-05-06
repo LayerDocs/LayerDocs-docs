@@ -2,14 +2,13 @@ import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
-import './globals.css'
 
 export const metadata = {
   title: 'LayerDocs Documentation',
-  description: 'Professional, high-performance typesetting for the web.',
+  description: 'The modular documentation engine.'
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }) {
   const pageMap = await getPageMap()
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
@@ -17,7 +16,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <Layout
           navbar={<Navbar logo={<b>LayerDocs</b>} />}
-          footer={<Footer text={`${new Date().getFullYear()} © LayerDocs`} />}
+          footer={<Footer>Built with LayerDocs</Footer>}
           pageMap={pageMap}
         >
           {children}
