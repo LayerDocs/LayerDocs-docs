@@ -3,6 +3,7 @@ import re
 import shutil
 
 MAPPING = {
+    ".": ["introduction.md", "quickstart.md"],
     "getting-started": ["quickstart.qd", "cli-options.qd"],
     "functions": ["syntax-of-a-function-call.qd", "declaring-functions.qd", "typing.qd", "localization.qd"],
     "document-setup": ["document-metadata.qd", "document-types.qd", "themes.qd", "font-configuration.qd", "page-format.qd", "multi-column-layout.qd", "page-margin-content.qd", "page-counter.qd", "persistent-headings.qd", "numbering.qd", "paragraph-style.qd", "caption-position.qd", "table-of-contents.qd", "bibliography.qd", "footnotes.qd", "book-cover.qd"],
@@ -23,7 +24,7 @@ MAPPING = {
 }
 
 LEGACY_DIR = "legacy"
-DOCS_DIR = "docs"
+DOCS_DIR = "src/app"
 
 def migrate():
     for category, files in MAPPING.items():
@@ -32,39 +33,32 @@ def migrate():
         
         for qd_file in files:
             src_path = os.path.join(LEGACY_DIR, qd_file)
-            if not os.path.exists(src_path): continue
+            if not os.path.exists(src_path):
+                src_path = os.path.join(LEGACY_DIR, qd_file.replace(".qd", ".md"))
+                if not os.path.exists(src_path): continue
                 
             with open(src_path, 'r', encoding='utf-8') as f:
                 content = f.read()
                 
-            # Rebrand
             content = content.replace("Quarkdown", "LayerDocs").replace("quarkdown", "layerdocs")
-            
-            # Remove images to avoid build errors
             content = re.sub(r'!\[.*?\]\(.*?\)', '', content)
-            
-            # MDX Safety: Escape { } < > outside of code blocks
-            lines = content.splitlines()
-            processed_lines = []
-            in_code_block = False
-            for line in lines:
-                if line.strip().startswith("```"):
-                    in_code_block = not in_code_block
-                
-                if not in_code_block:
-                    line = line.replace("{", "&#123;").replace("}", "&#125;")
-                    line = line.replace("<", "&lt;").replace(">", "&gt;")
-                
-                processed_lines.append(line)
-            
-            content = "\n".join(processed_lines)
+            content = content.replace("<", "&lt;").replace(">", "&gt;")
             
             title = qd_file.replace(".qd", "").replace("-", " ").title()
-            md_content = f"# {title}\n\n{content}"
             
-            dst_path = os.path.join(cat_dir, qd_file.replace(".qd", ".md"))
+            # Nextra 4 requires a specific file naming or [page]/page.mdx
+            # But standard .mdx in App Router should work if configured.
+            # Actually, Nextra 4 prefers page.mdx inside a folder for clean URLs.
+            
+            page_folder = os.path.join(cat_dir, qd_file.replace(".qd", "").replace(".md", ""))
+            os.makedirs(page_folder, exist_ok=True)
+            
+            md_content = f"# {title}\n\n{content}"
+            dst_path = os.path.join(page_folder, "page.mdx")
+            
             with open(dst_path, 'w', encoding='utf-8') as f:
                 f.write(md_content)
+            print(f"Migrated {qd_file}")
 
 if __name__ == "__main__":
     migrate()
