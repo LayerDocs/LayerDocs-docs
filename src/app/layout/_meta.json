@@ -1,0 +1,13 @@
+{
+  "stacks": "Stacks: rows, columns, grids",
+  "container": "Container",
+  "align": "Align",
+  "float": "Float",
+  "custom-figure": "Figure",
+  "clip": "Clip",
+  "box": "Box",
+  "file-tree": "File tree",
+  "collapsible": "Collapsible",
+  "landscape-content": "Landscape",
+  "whitespace": "Whitespace"
+}

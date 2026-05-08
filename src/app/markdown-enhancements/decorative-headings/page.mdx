@@ -1,0 +1,24 @@
+# Decorative headings
+
+
+
+
+To prevent a heading from being numbered and from appearing in the [table of contents](table-of-contents), append a `!` after the last `#` sign. For example: `#!`, `##!`, `###!`, etc.
+
+```layerdocs
+.exampleoutput \{![Decorative heading](/assets/numbering/decorative-heading.png)\}
+    ```markdown
+    .center
+        #! My document
+
+    ## Introduction
+
+    .loremipsum
+    ```
+
+```
+> Note: A heading with all optional flags disabled via [`.heading`](headings) is equivalent to a decorative heading:
+>
+> ```markdown
+> .heading \{My decorative heading\} depth:\{2\} numbered:\{no\} indexed:\{no\} breakpage:\{no\}
+> ```

@@ -1,0 +1,23 @@
+# Book cover
+
+
+
+
+A common pattern for [paged documents](document-types) is a full-bleed cover page, where an image spans the entire first page. This is achieved by combining:
+- [`.pageformat`](page-format) to remove margins on the first page;
+- [`.container`](container) to hold a full-width image.
+
+```layerdocs
+.exampleoutput \{!(500)[Book cover](/logo.png)\}
+    .doctype \{paged\}
+
+    .pageformat pages:\{..1\} margin:\{0\}
+
+    .container fullwidth:\{yes\} margin:\{0\}
+        !(100%)[Cover](/logo.png)
+
+    # Introduction
+    
+    ...
+
+```

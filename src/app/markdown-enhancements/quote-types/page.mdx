@@ -1,0 +1,27 @@
+# Alerts (quote types)
+
+
+
+
+If a blockquote begins with `Tip:`, `Note:`, `Warning:`, or `Important:`, LayerDocs assigns that type to the quote. The prefix is stripped off and the element is styled accordingly.
+
+```layerdocs
+.examplemirror
+    > Note: Some useful information to keep in mind.
+
+```
+For compatibility purposes, the GitHub-style syntax `[!NOTE]`, `[!TIP]`, `[!WARNING]`, and `[!IMPORTANT]` is also supported.
+
+```layerdocs
+.examplemirror
+    > [!NOTE]
+    > Some useful information to keep in mind.
+
+```
+If the document's locale is set via [`.doclang`](document-metadata) and the locale is supported, a localized prefix is displayed and styled according to the current layout theme.
+
+!(550)[Minimal theme](/logo.png)
+
+!(650)[Latex theme](/logo.png)
+
+> Tip: Quotes and [boxes](box) are different ways to achieve typed alerts.

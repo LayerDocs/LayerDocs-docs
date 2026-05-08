@@ -1,0 +1,41 @@
+# Clip
+
+
+
+
+The **`.clip \{shape\}`** block function clips its content to a defined shape.
+
+Supported shapes:
+- `circle`
+
+```layerdocs
+.examplemirror
+    ![Sky](/assets/assets/sky.jpg)
+
+    .clip \{circle\}
+        ![Sky](/assets/assets/sky.jpg)
+
+```
+## Figures
+
+When clipping a [figure](figure), only the content is affected, leaving the caption intact:
+
+```layerdocs
+.examplemirror
+    ![Sky](/logo.png)
+
+    .clip \{circle\}
+        ![Sky](/logo.png)
+
+```
+## General content
+
+Clipping works with any content, not just images. Here a [container](container) is used:
+
+```layerdocs
+.examplemirror
+    .clip \{circle\}
+        .container padding:\{2cm\} background:\{teal\}
+            #! Hello!
+
+```

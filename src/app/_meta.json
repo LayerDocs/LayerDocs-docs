@@ -1,0 +1,20 @@
+{
+  "index": "Welcome",
+  "getting-started": "Getting Started",
+  "functions": "Functions",
+  "document-setup": "Document Setup",
+  "markdown-enhancements": "Markdown Enhancements",
+  "layout": "Layout",
+  "multi-file-projects": "Multi-file Projects",
+  "variables-and-scripting": "Variables & Scripting",
+  "data-and-tables": "Data & Tables",
+  "charts-and-diagrams": "Charts & Diagrams",
+  "text-and-code": "Text & Code",
+  "slides": "Slides",
+  "html": "HTML",
+  "value-types": "Value Types",
+  "built-in-libraries": "Built-in Libraries",
+  "resources-and-logging": "Resources & Logging",
+  "cli-tools": "CLI Tools",
+  "inside-layerdocs": "Inside LayerDocs"
+}

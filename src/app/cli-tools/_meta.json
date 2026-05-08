@@ -1,0 +1,6 @@
+{
+  "cli-compiler": "Compiler",
+  "pdf-export": "Exporting to PDF",
+  "cli-project-creator": "Project creator",
+  "cli-webserver": "Webserver"
+}

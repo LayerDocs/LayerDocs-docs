@@ -1,0 +1,13 @@
+{
+  "markdown-content": "Markdown content",
+  "boolean": "Boolean",
+  "none": "None",
+  "enumeration-entry": "Enumeration entry",
+  "iterable": "Iterable",
+  "dictionary": "Dictionary",
+  "range": "Range",
+  "lambda": "Lambda",
+  "sizes": "Size(s)",
+  "color": "Color",
+  "typing": "Dynamic"
+}

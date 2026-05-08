@@ -1,0 +1,65 @@
+# Caption position
+
+
+
+
+The **`.captionposition`** [layerdocs-stdlib/com.layerdocs.stdlib.module.Document/captionposition.html](https://layerdocs.com/docs/layerdocs-stdlib/com.layerdocs.stdlib.module.Document/captionposition.html) function sets the global position of captions relative to the elements they describe.
+
+This applies to:
+- Figures
+  - [Figure Markdown extension](figure)
+  - [`.figure`](custom-figure)
+  - [Mermaid diagrams](mermaid-diagrams) and derivatives such as [XY charts](xy-chart)
+- Tables
+  - [Table caption Markdown extension](table-caption)
+  - [Tables from CSV](file-data.qd#table-from-csv)
+- Code blocks
+  - [Code caption Markdown extension](code-caption)
+  - [`.code`](code)
+
+---
+
+The primary parameter, called `default`, sets the global style for all captioned elements. Additional parameters `figures`, `tables`, and `code` override the default position for those specific element types.
+
+Each parameter is optional and accepts `top` or `bottom` values. Documents use `.captionposition \{bottom\}` by default.
+
+
+
+```layerdocs
+.example
+    ```markdown
+    .captionposition \{bottom\}
+
+    ![Sky](/logo.png)
+
+    | Name | Favorite food | Favorite beverage |
+    |------|---------------|-------------------|
+    | John | Chicken       | Orange juice      |
+    | Jane | Pasta         | Iced tea          |
+    | Joe  | Sushi         | Beer              |
+    "Survey results."
+    ```
+
+    ![Default: bottom](/assets/caption-position/bottom.png)
+
+.example
+    ```markdown
+    .captionposition \{top\}
+    ```
+
+    ![Default: top](/assets/caption-position/top.png)
+
+.example
+    ```markdown
+    .captionposition \{bottom\} tables:\{bottom\}
+    ```
+
+    ![Default: bottom, tables: top](/assets/caption-position/bottom-tables-top.png)
+
+
+
+
+
+
+```
+> Photo credits: [Pixabay](https://www.pexels.com/photo/blue-skies-53594/)

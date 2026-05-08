@@ -1,0 +1,185 @@
+.doclang {English}
+.theme {galactic} layout:{hyperlegible}
+.htmloptions baseurl:{/}
+
+.numbering
+    - example: 1
+
+.html {.read {assets/analytics.html}}
+.css {.read {assets/style.css}}
+
+.css
+    :root {
+        --ld-bg-color: #000000 !important;
+        --ld-main-bg: #000000 !important;
+        --ld-sidebar-bg: #000000 !important;
+        --ld-header-bg: rgba(0, 0, 0, 0.5) !important;
+        --ld-main-color: #ededed !important; /* Soft White */
+        --ld-primary-color: #22c55e !important; /* Green Accent */
+        --ld-link-color: #22c55e !important;
+        --ld-heading-color: #ffffff !important;
+        --subtle-border: 1px solid #222222 !important;
+    }
+    body {
+        background-color: #000000 !important;
+        color: #ededed !important;
+        font-family: 'Inter', -apple-system, system-ui, sans-serif !important;
+        line-height: 1.6 !important;
+        -webkit-font-smoothing: antialiased;
+    }
+    .sidebar {
+        background-color: #000000 !important;
+        border-right: var(--subtle-border);
+        padding-top: 2rem !important;
+    }
+    header {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-bottom: var(--subtle-border);
+        height: 64px !important;
+    }
+    /* Elegant Spacing & Typography */
+    main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 4rem 2rem !important;
+    }
+    h1, h2, h3, h4 {
+        letter-spacing: -0.02em !important;
+        font-weight: 600 !important;
+        margin-top: 2.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    /* Smooth Hover Animations */
+    a {
+        transition: color 0.2s ease, opacity 0.2s ease !important;
+    }
+    a:hover {
+        opacity: 0.8 !important;
+    }
+    .sidebar a {
+        color: #888888 !important;
+        padding: 8px 16px !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease !important;
+        display: block !important;
+        text-decoration: none !important;
+        font-size: 0.9375rem !important;
+        margin: 2px 0 !important;
+    }
+    .sidebar a:hover {
+        background: rgba(34, 197, 94, 0.08) !important;
+        color: #22c55e !important;
+    }
+    .sidebar a[aria-current="page"] {
+        color: #22c55e !important;
+        background: rgba(34, 197, 94, 0.12) !important;
+        font-weight: 600 !important;
+    }
+    .sidebar h3 {
+        color: #ffffff !important;
+        font-size: 0.75rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+        margin: 2rem 0 0.5rem 1rem !important;
+        opacity: 0.5 !important;
+    }
+    header a {
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+    }
+    header a:hover {
+        color: #22c55e !important;
+    }
+    /* Responsive & Shuffle */
+    @media (max-width: 768px) {
+        .page-margin-top-left {
+            justify-content: center !important;
+            width: 100% !important;
+        }
+        .version {
+            display: none !important;
+        }
+        main {
+            padding: 2rem 1rem !important;
+        }
+    }
+    .page-margin-top-left {
+        display: flex !important;
+        align-items: center !important;
+    }
+    .version {
+        background: rgba(34, 197, 94, 0.1) !important;
+        color: #22c55e !important;
+        padding: 2px 8px !important;
+        border-radius: 12px !important;
+        font-size: 0.75rem !important;
+        font-weight: 500 !important;
+        border: 1px solid rgba(34, 197, 94, 0.2) !important;
+    }
+    /* Syntax Highlighting */
+    .hljs {
+        background: #0a0a0a !important;
+        border: var(--subtle-border);
+        border-radius: 8px !important;
+        padding: 1.5rem !important;
+    }
+    .hljs-keyword, .hljs-selector-tag, .hljs-built_in, .hljs-name {
+        color: #22c55e !important;
+    }
+    .hljs-string, .hljs-regexp, .hljs-symbol {
+        color: #4ade80 !important;
+    }
+    .hljs-comment {
+        color: #666666 !important;
+    }
+
+.var {repourl} {https://github.com/LayerDocs/LayerDocs-core}
+
+.function {repolink}
+    content href:
+    .text {.content} url:{.repourl/.href}
+
+.function {docslink}
+    href:
+    .html {<sup><a href="https://layerdocs.com/docs/.href" target="_blank">docs ↗</a></sup>}
+
+.function {example}
+    type? content:
+    .numbered key:{example}
+        num:
+        .box {Example .num} type:{.type::otherwise {tip}}
+            .content
+
+.function {layerdocsoutput}
+    content:
+    .container classname:{layerdocs-output} fullwidth:{yes}
+        .content
+
+.function {exampleoutput}
+    output prelude? type? layerdocscode:
+    .example type:{.type}
+        .if {.prelude::isnone::not}
+            .prelude
+
+        .code lang:{markdown} linenumbers:{no}
+            .layerdocscode
+
+        .container classname:{layerdocs-output} fullwidth:{yes}
+            .output
+
+.function {examplemirror}
+    prelude? type? layerdocscode:
+    .exampleoutput output:{.layerdocscode} prelude:{.prelude} type:{.type} layerdocscode:{.layerdocscode}
+
+.pagemargin {topleft}
+    .row gap:{12px}
+        [![LayerDocs](banner-light.png)](https://github.com/LayerDocs/LayerDocs-core)
+
+        .read {../version.txt}::text classname:{version} url:{.repourl/releases/tag/latest}
+
+.pagemargin {topright}
+    .row
+        [.icon {github}](https://github.com/LayerDocs/LayerDocs-core)

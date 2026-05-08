@@ -1,0 +1,108 @@
+@import 'nextra-theme-docs/style.css';
+
+:root {
+  --nextra-primary-hue: 210deg;
+  --nextra-primary-saturation: 90%;
+  --nextra-bg: #000;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000 !important;
+  color: #f8fafc !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom styling for LayerDocs code blocks */
+pre code[class*="language-layerdocs"] {
+  border-left: 4px solid #3b82f6;
+  background-color: #050505 !important;
+  padding: 1.5rem !important;
+  border-radius: 0 0.75rem 0.75rem 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.nextra-nav-container {
+  border-bottom: 1px solid #1e293b;
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.nextra-sidebar-container {
+  background-color: #050505 !important;
+  border-right: 1px solid #1e293b;
+}
+
+.nextra-content {
+  max-width: 80rem !important;
+}
+
+h1 {
+  font-weight: 800 !important;
+  letter-spacing: -0.05em !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.5rem !important;
+  color: #fff !important;
+}
+
+h2 {
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  margin-top: 3.5rem !important;
+  margin-bottom: 1.25rem !important;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 0.75rem;
+  color: #f1f5f9 !important;
+}
+
+h3 {
+  font-weight: 600 !important;
+  margin-top: 2.5rem !important;
+  color: #e2e8f0 !important;
+}
+
+.nextra-sidebar-container a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #94a3b8 !important;
+}
+
+.nextra-sidebar-container a:hover {
+  background-color: #0f172a !important;
+  color: #3b82f6 !important;
+  padding-left: 1.5rem !important;
+}
+
+.nextra-sidebar-container .active {
+  color: #3b82f6 !important;
+  font-weight: 600;
+  background-color: #0f172a !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Callout styling enhancement */
+.nextra-callout {
+  border-radius: 0.75rem !important;
+  padding: 1.25rem !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  background-color: rgba(59, 130, 246, 0.05) !important;
+}

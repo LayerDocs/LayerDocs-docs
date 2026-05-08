@@ -1,8 +1,38 @@
+import { Callout } from 'nextra/components'
+
 # Welcome to LayerDocs
 
-This is the documentation for LayerDocs.
+<div className="flex flex-col items-center justify-center py-12 bg-gradient-to-b from-blue-900/20 to-transparent rounded-3xl border border-blue-500/10 mb-12">
+  <img src="/logo.png" alt="LayerDocs Logo" width="160" className="drop-shadow-2xl mb-6" />
+  <h2 className="text-4xl font-extrabold tracking-tighter text-white sm:text-5xl">The Modular Documentation Engine</h2>
+  <p className="mt-4 text-xl text-gray-400 max-w-2xl text-center">
+    A powerful, typeset-first documentation system that combines the simplicity of Markdown with the power of programmatic layout.
+  </p>
+  <div className="mt-8 flex gap-4">
+    <a href="/getting-started/quickstart" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all">
+      Get Started
+    </a>
+    <a href="https://github.com/iamgio/layerdocs" className="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-full transition-all">
+      GitHub
+    </a>
+  </div>
+</div>
 
-## Getting Started
+<Callout type="info" emoji="🚀">
+  **LayerDocs** (formerly Quarkdown) is designed for technical writers who need more control than standard Markdown but want to maintain the speed of a text-based workflow.
+</Callout>
 
-- [Quickstart](/getting-started/quickstart)
-- [CLI Options](/getting-started/cli-options)
+### Core Concepts
+
+*   **Modular Architecture**: Include and reference files dynamically.
+*   **Built-in Functions**: Powerful primitives for layout, tables, and charts.
+*   **Variables & Scripting**: Use logic inside your documentation.
+*   **Multi-Output**: Generate high-quality PDFs and interactive websites from the same source.
+
+---
+
+### Navigation
+
+Use the sidebar on the left to explore the full documentation. If you're new here, we recommend starting with the [Quickstart](/getting-started/quickstart) guide.
+
+*Since LayerDocs extends CommonMark and GFM, this wiki does not cover standard Markdown syntax. For Markdown basics, see [markdownguide.org](https://www.markdownguide.org/basic-syntax).*

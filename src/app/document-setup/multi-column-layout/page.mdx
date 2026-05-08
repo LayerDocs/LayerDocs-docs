@@ -1,0 +1,23 @@
+# Multi-column layout
+
+
+
+
+[**`.pageformat \{columns\}`**](page-format) applies a multi-column layout to each page when the value of `columns` is higher than 1.
+
+```layerdocs
+.exampleoutput \{![Example](/assets/multi-column-layout/two-columns.png)\}
+    .pageformat columns:\{2\}
+
+```
+## Full-span content
+
+In a multi-column layout, all elements except for level 1-3 headings render within their own column.
+You can set some content to span across all columns of the layout by using the **`.fullspan`** block function.
+
+```layerdocs
+.exampleoutput \{![Full-span example](/assets/multi-column-layout/fullspan.png)\}
+    .fullspan
+        ![Image](/logo.png)
+
+```

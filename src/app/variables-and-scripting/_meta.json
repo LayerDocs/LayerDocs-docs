@@ -1,0 +1,9 @@
+{
+  "variables": "Variables",
+  "none": "Optionality",
+  "math": "Math",
+  "conditional-statements": "Conditional statements",
+  "loops": "Loops",
+  "let": "Let",
+  "destructuring": "Destructuring"
+}

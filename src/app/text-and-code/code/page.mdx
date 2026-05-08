@@ -1,0 +1,41 @@
+# Advanced code block
+
+
+
+
+You can create code blocks using the standard Markdown specification: either with 4-space or 1-tab indentation, or with triple backticks or tildes.
+
+```layerdocs
+.examplemirror
+    ```javascript
+    function greet(name) \{
+        return `Hello, $\{name\}!`;
+    \}
+    ```
+
+```
+LayerDocs also provides a more powerful **`.code`** [layerdocs-stdlib/com.layerdocs.stdlib.module.Text/code.html](https://layerdocs.com/docs/layerdocs-stdlib/com.layerdocs.stdlib.module.Text/code.html) block function.
+
+```layerdocs
+.examplemirror
+    .code lang:\{javascript\}
+        function greet(name) \{
+            return `Hello, $\{name\}!`;
+        \}
+
+```
+## `.code` vs. standard code blocks
+
+### Content processing
+
+Standard code blocks render their content as-is without any processing. The `.code` function, on the other hand, accepts any LayerDocs string as its body parameter, which means you can **evaluate functions** before displaying their output as code. This is particularly useful when combining `.code` with [`.read`](file-data) to load a code snippet from a file:
+
+```layerdocs
+.examplemirror
+    .code
+        .read \{assets/point.ts\}
+
+```
+### Language specification
+
+Standard fenced code blocks specify their language right after the opening delimiter, for example ` __CODE_BLOCK_1__ ``), **`.codespan \{text\}`** is a dynamic alternative to inline backticks (`` `text` ``). This allows function calls within its content.

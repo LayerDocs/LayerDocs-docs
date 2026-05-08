@@ -1,0 +1,37 @@
+.docname {LayerDocs Wiki}
+.include {docs}
+
+.css
+    h1 { opacity: 0; height: 0; margin: 0; padding: 0; }
+    figure { margin: 80px auto; display: flex; justify-content: center; }
+    h2 { text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; }
+    p { text-align: center; color: #888; font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem auto; }
+    .links-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 3rem; }
+    .links-grid a { 
+        padding: 1rem 1.5rem; 
+        border: 1px solid #222; 
+        border-radius: 8px; 
+        color: #ededed !important; 
+        text-decoration: none !important;
+        transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .links-grid a:hover { 
+        border-color: #22c55e; 
+        background: rgba(34, 197, 94, 0.05); 
+        color: #22c55e !important;
+    }
+
+![LayerDocs](banner-light.png)
+
+## Welcome to LayerDocs
+
+Build beautiful documentation with speed and precision. LayerDocs combines the simplicity of Markdown with the power of LaTeX and custom components.
+
+This wiki is a living example of LayerDocs in action, built on the latest stable release.
+
+.container classname:{links-grid}
+    [PyPI Package](https://pypi.org/project/layerdocs/)
+    [GitHub Repository](https://github.com/LayerDocs/LayerDocs-core)
+    [Discussions](https://github.com/LayerDocs/LayerDocs-core/discussions)
+    [Examples](https://github.com/SatyamPote/layerdocs/tree/main/layerdocs-test/src/test/kotlin/com/layerdocs/test)
+    [Markdown Guide](https://www.markdownguide.org/basic-syntax)

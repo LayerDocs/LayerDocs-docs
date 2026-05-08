@@ -1,0 +1,44 @@
+# CSS
+
+
+
+
+The **`.css`** [layerdocs-stdlib/com.layerdocs.stdlib.module.Html/css.html](https://layerdocs.com/docs/layerdocs-stdlib/com.layerdocs.stdlib.module.Html/css.html) function lets you apply CSS styles to the document.
+
+> [!WARNING]
+> CSS styles only apply to HTML and HTML-PDF documents. They have no effect on other output formats.
+>
+> See the [HTML](html) page for more details on this topic.
+
+```css
+```
+
+You can also load CSS styles from a file using the [`.read`](file-data) function:
+
+```markdown
+\}
+```
+
+> [!NOTE]
+> Unlike [`.code`](code), the `.css` function does not allow function calls inside its body argument because they would be ambiguous with CSS syntax.
+>
+> For this reason, you must inline the `.read` call as shown in the previous example.
+
+## Custom classes
+
+You can assign custom CSS class names to specific elements using the `classname` parameter, which is available in [`.container`](container) for blocks and [`.text`](text) for inline elements.
+
+```layerdocs
+.examplemirror
+    .container classname:\{my-custom-class\}
+        This is a block with a custom class.
+
+        - Item 1
+        - Item 2
+        - Item 3
+
+    This is an .text \{inline text\} classname:\{my-custom-class\} with a custom class.
+
+    
+
+```

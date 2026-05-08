@@ -1,0 +1,192 @@
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+/*
+
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+.hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+:root {
+  --ld-color-scheme: dark;
+  --ld-primary-color: #224A51;
+  --ld-background-color: #242528;
+  --ld-main-color: #DADAEB;
+  --ld-link-color: #5FC7C7;
+  --ld-nested-navigation-line-color: rgba(255, 255, 255, 0.1);
+  --ld-box-header-background-color: rgba(23, 53, 56, 0.35);
+  --ld-callout-background-color: var(--ld-primary-color);
+  --ld-callout-foreground-color: var(--ld-color-on-primary);
+  --ld-tip-background-color: rgb(60, 114, 74);
+  --ld-tip-title-foreground-color: rgb(210, 250, 214);
+  --ld-note-background-color: rgb(52, 79, 117);
+  --ld-note-title-foreground-color: rgb(197, 222, 255);
+  --ld-warning-background-color: rgb(239, 203, 99);
+  --ld-warning-title-foreground-color: #333;
+  --ld-important-title-foreground-color: #FF7373;
+  --ld-color-on-primary: var(--ld-main-color);
+  --ld-mermaid-node-background-color: #ECECFF;
+  --ld-mermaid-node-text-color: var(--ld-background-color);
+  --ld-kbd-background-color: color-mix(in srgb, var(--ld-main-color-muted) 25%, var(--ld-background-color));
+  --ld-kbd-border-color: color-mix(in srgb, var(--ld-main-color-muted) 75%, var(--ld-main-color));
+  --ld-docs-header-background-color: #2E3136;
+  --ld-docs-separator-border-color: #393c40;
+  --ld-docs-search-focused-border: var(--ld-link-color);
+}
+
+.layerdocs hr {
+  opacity: 0.5;
+}
+.layerdocs pre :has(code) {
+  --shadow-opacity: 0.08;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, var(--shadow-opacity));
+}
+.layerdocs .layerdocs-slides pre {
+  --shadow-opacity: 0.1;
+}
+.layerdocs .warning {
+  --ld-box-header-background-color: rgba(0, 0, 0, .1);
+}
+.layerdocs .warning.box {
+  --ld-warning-content-foreground-color: var(--ld-warning-title-foreground-color);
+}
+.layerdocs blockquote.warning {
+  --box-header-foreground-color: var(--ld-warning-background-color);
+}
+.layerdocs .page-margin-bottom-center {
+  border-color: var(--ld-link-color);
+}
+.layerdocs .mermaid .plot .line-plot-3 path {
+  stroke: salmon;
+}
+.layerdocs #search-results {
+  border: 1px solid var(--ld-docs-search-border-color);
+}
+.layerdocs .search-result-title {
+  color: var(--ld-link-color);
+}
+
+:root {
+  --ld-primary-color: rgb(178, 199, 255);
+  --ld-main-color: rgb(208, 210, 217);
+  --ld-heading-color: white;
+  --ld-link-color: var(--ld-primary-color);
+  --ld-background-color: rgb(23, 24, 28);
+  --ld-warning-title-foreground-color: var(--ld-warning-background-color);
+  --ld-mermaid-node-background-color: white;
+  --ld-docs-header-background-color: rgb(35, 38, 47);
+  --ld-docs-separator-border-color: var(--ld-docs-header-background-color);
+  --ld-docs-search-border-color: rgb(53, 56, 65);
+  --ld-docs-search-focused-border: var(--ld-primary-color);
+}
+
+.layerdocs .box:not(.error) {
+  background: color-mix(in srgb, var(--box-background-color) 5%, transparent);
+  --ld-box-header-background-color: color-mix(in srgb, var(--box-header-foreground-color) 6%, transparent);
+  border-style: solid;
+  border-color: var(--box-header-foreground-color);
+  border-width: 1px 3px 1px 2px;
+}
+.layerdocs .box:not(.error).warning {
+  --ld-warning-content-foreground-color: var(--ld-main-color);
+}
+.layerdocs #search-results {
+  --ld-docs-separator-border-color: var(--ld-main-color-muted);
+}
+
+/*# sourceMappingURL=galactic.css.map */

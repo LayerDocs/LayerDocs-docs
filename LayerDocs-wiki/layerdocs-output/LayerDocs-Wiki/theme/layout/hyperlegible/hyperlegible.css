@@ -1,0 +1,165 @@
+:root {
+  --ld-main-font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --ld-code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --ld-code-span-font-size: 0.9em;
+  --ld-slides-code-block-font-size: 1.3em;
+  --ld-line-height: 1.75;
+  --ld-table-default-header-alignment: center;
+  --ld-heading-label-suffix: "";
+  --ld-quote-type-label-suffix: "";
+  --ld-mermaid-node-filter: drop-shadow(1px 2px var(--ld-mermaid-node-border-color));
+}
+
+.layerdocs h1 {
+  --h-font-scale: 3;
+  font-size: 3em;
+}
+.layerdocs h2 {
+  --h-font-scale: 2.04;
+  font-size: 2.04em;
+}
+.layerdocs h3 {
+  --h-font-scale: 1.68;
+  font-size: 1.68em;
+}
+.layerdocs h4 {
+  --h-font-scale: 1.44;
+  font-size: 1.44em;
+}
+.layerdocs h5, .layerdocs h6 {
+  --h-font-scale: 1.2;
+  font-size: 1.2em;
+}
+.layerdocs h1 {
+  line-height: calc(3.575em / var(--h-font-scale, 1.5));
+  margin-bottom: calc(2.1875em / var(--h-font-scale, 1.5));
+}
+.layerdocs h2 {
+  line-height: calc(2.2em / var(--h-font-scale, 1.5));
+  margin-top: calc(3.3em / var(--h-font-scale, 1.5));
+}
+.layerdocs h3 {
+  margin-top: calc(2.75em / var(--h-font-scale, 1.5));
+}
+.layerdocs h4 {
+  margin-top: calc(2.2em / var(--h-font-scale, 1.5));
+}
+.layerdocs h5 {
+  margin-top: calc(1.98em / var(--h-font-scale, 1.5));
+}
+.layerdocs h6 {
+  margin-top: calc(2.75rem / var(--h-font-scale, 1.5));
+}
+.layerdocs h3, .layerdocs h4, .layerdocs h5, .layerdocs h6 {
+  line-height: calc(1.7875em / var(--h-font-scale, 1.5));
+}
+.layerdocs h1 + h2 {
+  margin-top: calc(1.7875em / var(--h-font-scale, 1.5));
+}
+.layerdocs h2 + h3,
+.layerdocs h3 + h4,
+.layerdocs h4 + h5 {
+  margin-top: calc(0.88em / var(--h-font-scale, 1.5));
+}
+.layerdocs h5 + h6 {
+  margin-top: calc(0.88rem / var(--h-font-scale, 1.5));
+}
+.layerdocs h2, .layerdocs h3, .layerdocs h4, .layerdocs h5, .layerdocs h6 {
+  margin-bottom: calc(1.28em / var(--h-font-scale, 1.5));
+}
+.layerdocs table:not(pre table) {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+.layerdocs table:not(pre table) th, .layerdocs table:not(pre table) td {
+  padding: 8px 14px;
+  border: 1px solid var(--ld-main-color-muted) !important;
+}
+.layerdocs table:not(pre table) th {
+  font-weight: 600;
+}
+.layerdocs table:not(pre table) tr {
+  background-color: var(--ld-background-color);
+}
+.layerdocs table:not(pre table) tr:nth-child(2n) {
+  background-color: color-mix(in srgb, var(--ld-main-color) 2%, var(--ld-background-color));
+}
+.layerdocs table:not(pre table) thead tr {
+  background-color: var(--ld-background-color);
+}
+.layerdocs nav ul, .layerdocs nav ol {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 12px;
+}
+.layerdocs nav ul ul, .layerdocs nav ul ol, .layerdocs nav ol ul, .layerdocs nav ol ol {
+  border-left: 2px solid var(--ld-nested-navigation-line-color);
+  border-radius: 2px;
+  margin-left: 1px;
+  padding: 0 0 0 var(--ld-nested-navigation-padding-left);
+}
+.layerdocs nav li {
+  margin: 4px 0;
+}
+.layerdocs nav [data-location]::before {
+  opacity: 0.5;
+}
+.layerdocs.layerdocs-slides nav > :is(ul, ol) {
+  margin-left: auto;
+}
+.layerdocs.layerdocs-slides nav, .layerdocs.layerdocs-slides h1#table-of-contents {
+  margin-left: 44px;
+}
+.layerdocs.layerdocs-docs {
+  --ld-nested-navigation-line-color: var(--ld-docs-separator-border-color);
+}
+.layerdocs.layerdocs-docs h1 {
+  border-bottom: 1px solid var(--ld-docs-separator-border-color);
+  padding-bottom: 24px;
+}
+.layerdocs h4, .layerdocs h5 {
+  font-weight: 600;
+}
+.layerdocs a:hover {
+  text-decoration: underline;
+}
+.layerdocs blockquote {
+  border-left: 2px solid;
+  padding-left: 1.5em;
+}
+.layerdocs blockquote:not([class]) {
+  background-color: transparent !important;
+  border-color: var(--ld-main-color-muted);
+  padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.layerdocs blockquote[data-labeled] > :first-child::before {
+  display: block;
+}
+.layerdocs pre {
+  --ld-block-margin: 3em;
+}
+.layerdocs .box > header > h4 {
+  font-size: 1.2em;
+}
+.layerdocs .codespan-content {
+  padding: 0.12rem 0.35rem;
+  background-color: color-mix(in srgb, currentColor 3%, transparent);
+}
+.layerdocs [data-location]:is(h1, h2, h3, h4, h5, h6, li)::before {
+  margin-right: 0.5em;
+}
+.layerdocs nav ul ul, .layerdocs nav ul ol, .layerdocs nav ol ul, .layerdocs nav ol ol {
+  border-width: 1px;
+  margin-left: 0.75em;
+  padding-left: 0.9em;
+}
+.layerdocs.layerdocs-docs header {
+  border-bottom: 1px solid var(--ld-background-color);
+}
+
+/*# sourceMappingURL=hyperlegible.css.map */

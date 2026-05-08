@@ -1,0 +1,28 @@
+# Float
+
+
+
+
+The **`.float \{alignment\}`** function transforms any content into a floating element that breaks the normal flow and allows subsequent content to wrap around it.
+
+The `alignment` parameter accepts `start` or `end`.
+
+```layerdocs
+.examplemirror
+    .float \{start\}
+        !(70%)[Icon](/logo.png)
+
+    .loremipsum
+
+```
+In addition to images, you can make any other content float.
+
+```layerdocs
+.examplemirror
+    .float \{end\}
+        .box \{Hello\} type:\{warning\}
+            Floating!
+
+    .loremipsum
+
+```

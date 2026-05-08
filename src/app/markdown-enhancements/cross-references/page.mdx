@@ -1,0 +1,118 @@
+# Cross-references
+
+
+
+
+In typesetting, cross-references are references to other parts of the document, such as figures, tables, sections, and equations.
+
+In LayerDocs, you create a cross-reference using the **`.ref \{id\}`** function, where `id` is the cross-reference ID of the target element. The function can appear either before or after the target element.
+
+> Note: Cross-referencing works best when elements are numbered, and you have set a supported document language.
+> See [Numbering](numbering) and [Localization](localization) for details.
+
+You typically set the ID using the `\{#id\}` syntax. The exact location depends on the element type, as the following sections explain.
+
+### Sections
+
+```layerdocs
+.exampleoutput \{![Sections](/assets/cross-references/section-reference.png)\}
+    Once you install LayerDocs, check out .ref \{getting-started\} for a quick guide.
+
+    ## Getting started \{#getting-started\}
+
+```
+> Tip: In HTML rendering, the reference ID of headings also becomes the HTML `id` attribute, which makes them suitable for linking.
+
+
+### Figures
+
+```layerdocs
+.exampleoutput \{![Figures](/assets/cross-references/figure-reference.png)\}
+    The LayerDocs logo is shown in .ref \{logo\}.
+
+    ![Logo](/logo.png) \{#logo\}
+
+```
+### Tables
+
+```layerdocs
+.exampleoutput \{![Tables](/assets/cross-references/table-reference.png)\}
+    As shown in .ref \{data\}, coffee is the most popular beverage.
+
+    | Person  | Beverage |
+    |---------|----------|
+    | Alice   | Tea      |
+    | Bob     | Coffee   |
+    | Charlie | Coffee   |
+    \{#data\}
+
+.example
+    With a [caption](table-caption):
+
+    ```markdown
+    | Person  | Beverage |
+    |---------|----------|
+    | Alice   | Tea      |
+    | Bob     | Coffee   |
+    | Charlie | Coffee   |
+    "Beverage preferences" \{#data\}
+    ```
+
+```
+### Equations
+
+```layerdocs
+.exampleoutput \{![Equations](/assets/cross-references/equation-reference.png)\}
+    Einstein's famous equation is shown in .ref \{energy\}.
+
+    $ E = mc^2 $ \{#energy\}
+
+.example
+    For multi-line equations:
+
+    ```markdown
+    $$$ \{#energy\}
+    E = mc^2
+    $$$
+    ```
+
+```
+> Tip: See [TeX Formulae](tex-formulae) for more information on writing equations in LayerDocs.
+
+### Code blocks (listings)
+
+```layerdocs
+.exampleoutput \{![Code blocks](/assets/cross-references/codeblock-reference.png)\}
+    See the main function in .ref \{main\}.
+
+    ```kotlin \{#main\}
+    fun main() \{
+        println("Hello, World!")
+    \}
+    ```
+
+.example
+    With a [caption](code-caption):
+
+    ~~~markdown
+    ```kotlin "Hello World in Kotlin" \{#main\}
+    fun main() \{
+        println("Hello, World!")
+    \}
+    ```
+    ~~~
+
+```
+### Custom numbered elements
+
+> The `.numbered` function is explained in detail in [Numbering](numbering.qd#custom-numbered-elements).
+
+```layerdocs
+.exampleoutput \{![Custom numbered elements](/assets/cross-references/numbered-reference.png)\}
+    In Example .ref \{my-example\} you can see a custom numbered element.
+
+    .numbered \{examples\} ref:\{my-example\}
+        number:
+        **Example .number:** this is a custom numbered element.
+
+```
